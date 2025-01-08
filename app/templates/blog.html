@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Анкета пользователя</h1>
+    <h1 class="text-center mb-4">Анкета пользователя.</h1>
     <form method="POST">
         <div class="form-group">
             <label for="name">Имя:</label>
@@ -27,14 +27,16 @@
         </div>
         <button type="submit" class="btn btn-primary">Отправить</button>
     </form>
+    <h2>Введенные данные:</h2>
 
-    {% if user_data %}
-        <h2>Введенные данные:</h2>
-        <p><strong>Имя:</strong> {{ user_data.name }}</p>
-        <p><strong>Город:</strong> {{ user_data.city }}</p>
-        <p><strong>Хобби:</strong> {{ user_data.hobby }}</p>
-        <p><strong>Возраст:</strong> {{ user_data.age }}</p>
-    {% endif %}
+    {% for user in users %}
+        <div>
+            <p><strong>Имя:</strong>{{ user.name }}</p>
+            <p><strong>Город:</strong>{{ user.city }}</p>
+            <p><strong>Хобби:</strong>{{ user.hobby }}</p>
+            <p><strong>Возраст:</strong>{{ user.age }}</p>
+        </div>
+    {% endfor %}
 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
